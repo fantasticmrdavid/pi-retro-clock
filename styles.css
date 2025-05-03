@@ -2,9 +2,9 @@
     --color-body: #4f4f4f;
     --color-link: #389dc1;
     --color-bg-dark: #272e38;
-    --color-fg-dark: #92ebf6;
+    --color-fg-dark: #ff002f;
     --color-border-black: #000;
-    --color-bg-display-dark: #0f1620;
+    --color-bg-display-dark: #200f0f;
 }
 
 *{
@@ -91,7 +91,7 @@ section, footer, header, aside{
     top: 35%;
     left: 0;
     width: 100%;
-    opacity: 0.05;
+    opacity: 0.2;
 }
 
 #clock .digits div,
@@ -359,7 +359,7 @@ section, footer, header, aside{
 }
 
 #clock .weekdays span{
-    opacity:0.1;
+    opacity:0.2;
     padding:0 10px;
 }
 
