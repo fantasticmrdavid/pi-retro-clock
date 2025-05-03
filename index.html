@@ -3,13 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Script clock</title>
     <link rel="stylesheet" href="./styles.css">
-    <title>Clock</title>
 </head>
 <body>
-    <div class="container">
-        <div class="clock" data-mode="12h"></div>
+    <div id="clock" class="dark">
+        <div class="display">
+            <div class="weekdays"></div>
+            <div class="ampm"></div>
+            <div class="digits"></div>
+            <div class="underlay"></div>
+        </div>
     </div>
-    <script src="./clock.js"></script>
+<!-- JavaScript Includes -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.0.0/moment.min.js"></script>
+<script src="./clock.js"></script>
 </body>
 </html>
