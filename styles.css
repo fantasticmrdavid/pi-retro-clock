@@ -91,7 +91,7 @@ section, footer, header, aside{
     top: 35%;
     left: 0;
     width: 100%;
-    opacity: 0.5;
+    opacity: 0.35;
 }
 
 #clock .digits div,
@@ -356,10 +356,12 @@ section, footer, header, aside{
     top:10px;
     left:0;
     text-align:center;
+    display: flex;
+    justify-content: center;
 }
 
 #clock .weekdays span{
-    opacity: 0.5;
+    opacity: 0.35;
     padding:0 10px;
 }
 
