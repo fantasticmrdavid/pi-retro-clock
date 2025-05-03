@@ -54,6 +54,7 @@ section, footer, header, aside{
     padding: 40px 20px 20px;
     position:relative;
     height: 54px;
+    transform: scale(1.5);
 }
 
 /*-------------------------
