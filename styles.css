@@ -51,7 +51,7 @@ section, footer, header, aside{
 
 #clock .display{
     text-align:center;
-    padding: 40px 20px 20px;
+    padding: 20px 20px 20px;
     position:relative;
     height: 54px;
     transform: scale(1.4);
@@ -94,7 +94,7 @@ section, footer, header, aside{
 
 #clock .underlay {
     position: absolute;
-    top: 35%;
+    top: 20%;
     left: 0;
     width: 100%;
     opacity: 0.35;
