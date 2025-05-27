@@ -51,7 +51,7 @@ section, footer, header, aside{
 
 #clock .display{
     text-align:center;
-    padding: 30px 20px 20px;
+    padding: 25px 20px 20px;
     position:relative;
     height: 54px;
     transform: scale(1.4);
@@ -72,7 +72,7 @@ section, footer, header, aside{
 #clock.dark .digits,
 #clock.dark .underlay {
     margin-top: 30px;
-    left: -35px;
+    left: -15px;
     transform: scale(1.5);
 }
 
@@ -99,7 +99,7 @@ section, footer, header, aside{
 
 #clock .underlay {
     position: absolute;
-    top: 30%;
+    top: 25%;
     left: 0px;
     width: 100%;
     opacity: 0.35;
@@ -387,6 +387,6 @@ section, footer, header, aside{
 #clock .ampm{
     position:absolute;
     bottom:20px;
-    right:60px;
+    right: 45px;
     font-size:20px;
 }
