@@ -65,6 +65,12 @@ section, footer, header, aside{
     color: var(--color-fg-dark);
 }
 
+#clock.dark .digits,
+#clock.dark .underlay {
+    margin-top: 30px;
+    transform: scale(1.5);
+}
+
 #clock.dark .digits div span,
 #clock.dark .underlay div span{
     background-color: var(--color-fg-dark);
@@ -376,6 +382,6 @@ section, footer, header, aside{
 #clock .ampm{
     position:absolute;
     bottom:20px;
-    right:80px;
-    font-size:12px;
+    right:30px;
+    font-size:20px;
 }
