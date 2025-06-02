@@ -59,6 +59,8 @@ aside {
     text-align: center;
     position: relative;
     font-size: 14px;
+    margin-top: 50px;
+    transform: scale(1.2);
 }
 
 /*-------------------------
