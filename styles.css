@@ -88,6 +88,7 @@ aside {
 
 .clockTime {
     display: flex;
+    gap: 5px;
 }
 
 .display .count {
