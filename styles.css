@@ -59,7 +59,8 @@ aside {
     text-align: center;
     position: relative;
     font-size: 14px;
-    margin-top: 50px;
+    margin-top: 45px;
+    left: -5px;
     transform: scale(1.1);
 }
 
