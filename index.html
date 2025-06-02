@@ -3,16 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Java Script clock</title>
+    <style type="text/css">
+        @font-face {
+            font-family: 'Digital-7';
+            src: url('fonts/digital-7-mono.eot');
+            src: url('fonts/digital-7-mono.eot?#iefix') format('embedded-opentype'),
+            url('fonts/digital-7-mono.woff2') format('woff2'),
+            url('fonts/digital-7-mono.woff') format('woff'),
+            url('fonts/digital-7-mono.ttf')  format('truetype'),
+            url('fonts/digital-7-mono.svg#Digital-7') format('svg');
+        }
+    </style>
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
     <div id="clock" class="dark">
         <div class="display">
-            <div class="weekdays"></div>
-            <div class="ampm"></div>
-            <div class="digits"></div>
-            <div class="underlay"></div>
+            <section>
+                <div class="device">PI-ZERO-2W</div>
+                <div class="network">
+                    <div class="inactive">SERIAL</div>
+                    <div class="inactive">LAN</div>
+                    <div>WI-FI</div>
+                </div>
+            </section>
+            <section>
+                <div class="count">
+                    <div class="status"><img src="vhs_icon.svg" class="vhs-icon" alt="VHS icon" /> PLAY</div>
+                    <div class="countDigits">
+                        <span class="countHours">00</span>H <span class="countMinutes">00</span>M <span class="countSeconds">00</span>S
+                        <div class="underlay"><span>00</span>H <span>00</span>M <span>00</span>S</div>
+                    </div>
+                </div>
+                <div class="clockTime">
+                    <div class="digitsContainer">
+                        <div class="digits">00:00</div>
+                        <div class="underlay">00:00</div>
+                    </div>
+                    <div>
+                        <div class="ampm"></div>
+                        <div class="weekday"></div>
+                        <div class="date"></div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="left">
+                    <div class="audio">
+                        <div class="inactive">MONO</div>
+                        <div>STEREO</div>
+                    </div>
+                    <div class="mode">
+                        NTSC
+                        <span class="arrows">>>></span>
+                        PAL
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="signal">
+                        <span class="inactive">VHF</span>
+                        <span>UHF</span>
+                    </div>
+                    <div class="channel">
+                        <div>CH</div><div class="number">58<div class="underlay">00</div></div>
+                    </div>
+                </div>
+            </section>
         </div>
     </div>
 <!-- JavaScript Includes -->

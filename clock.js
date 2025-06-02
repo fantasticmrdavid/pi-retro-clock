@@ -1,131 +1,58 @@
 $(function(){
+    const $arrows = $('.arrows');
+    const symbols = $arrows.text().split('');
+    $arrows.empty();
+    symbols.forEach(sym => $arrows.append(`<span>${sym}</span>`));
 
-    // Cache some selectors
+    // cycle .active every 0.5s
+    const $spans = $arrows.children('span');
+    let idx = 0;
+    setInterval(() => {
+        $spans.removeClass('active').eq(idx).addClass('active');
+        idx = (idx + 1) % $spans.length;
+    }, 500);
 
-    var clock = $('#clock'),
-        ampm = clock.find('.ampm');
+    const loadTime = moment();
 
-    // Map digits to their names (this will be an array)
-    var digit_to_name = 'zero one two three four five six seven eight nine'.split(' ');
+    function updateClockInfo() {
+        // weekday
+        const dayAbbrev = moment().format('ddd');
+        document.querySelector('.weekday').textContent = dayAbbrev;
 
-    // This object will hold the digit elements
-    var digits = {};
+        // date
+        const formattedDate = moment().format('DD/MM');
+        document.querySelector('.date').textContent = formattedDate;
 
-    var underlay = {};
+        // 12 h AM/PM
+        const ampm = moment().format('A');
+        document.querySelector('.ampm').textContent = ampm;
 
-    // Positions for the hours, minutes, and seconds
-    var positions = [
-        'h1', 'h2', ':', 'm1', 'm2'
-    ];
+        // current time in 12-hour format
+        const time12hr = moment().format('hh:mm');
+        document.querySelector('#clock .digits').textContent = time12hr;
 
-    // Generate the digits with the needed markup,
-    // and add them to the clock
+        // elapsed counter since page load with clamp
+        const elapsed = moment.duration(moment().diff(loadTime));
+        const rawH = Math.floor(elapsed.asHours());
+        const rawM = elapsed.minutes();
+        const rawS = elapsed.seconds();
 
-    var digit_holder = clock.find('.digits');
+        const h = rawH > 99 ? 99 : rawH;
+        const m = rawM > 99 ? 99 : rawM;
+        const s = rawS > 99 ? 99 : rawS;
 
-    $.each(positions, function(){
+        document.querySelector('.countHours').textContent   = String(h).padStart(2, '0');
+        document.querySelector('.countMinutes').textContent = String(m).padStart(2, '0');
+        document.querySelector('.countSeconds').textContent = String(s).padStart(2, '0');
 
-        if(this == ':'){
-            digit_holder.append('<div class="dots">');
+        if (rawH >= 99) {
+            clearInterval(timer);
         }
-        else{
+    }
 
-            var pos = $('<div>');
+    // initial render
+    updateClockInfo();
 
-            for(var i=1; i<8; i++){
-                pos.append('<span class="d' + i + '">');
-            }
-
-            // Set the digits as key:value pairs in the digits object
-            digits[this] = pos;
-
-            // Add the digit elements to the page
-            digit_holder.append(pos);
-        }
-
-    });
-
-    // Generate the digits with the needed markup,
-    // and add them to the clock
-
-    var digit_underlay_holder = clock.find('.underlay');
-
-    $.each(positions, function(){
-
-        if(this == ':'){
-            digit_underlay_holder.append('<div class="dots">');
-        }
-        else{
-
-            var pos = $('<div>');
-
-            for(var i=1; i<8; i++){
-                pos.append('<span class="d' + i + '">');
-            }
-
-            // Set the digits as key:value pairs in the digits object
-            underlay[this] = pos;
-
-            // Add the digit elements to the page
-            digit_underlay_holder.append(pos);
-        }
-
-    });
-
-
-    underlay.h1.attr('class', 'eight');
-    underlay.h2.attr('class', 'eight');
-    underlay.m1.attr('class', 'eight');
-    underlay.m2.attr('class', 'eight');
-
-    // Add the weekday names
-
-    var weekday_names = 'MON TUE WED THU FRI SAT SUN'.split(' '),
-        weekday_holder = clock.find('.weekdays');
-
-    $.each(weekday_names, function(){
-        weekday_holder.append('<span>' + this + '</span>');
-    });
-
-    var weekdays = clock.find('.weekdays span');
-
-    // Run a timer every second and update the clock
-
-    (function update_time(){
-
-        // Use moment.js to output the current time as a string
-        // hh is for the hours in 12-hour format,
-        // mm - minutes, ss-seconds (all with leading zeroes),
-        // d is for day of week and A is for AM/PM
-
-        var now = moment().format("hhmmssdA");
-
-        digits.h1.attr('class', digit_to_name[now[0]]);
-        digits.h2.attr('class', digit_to_name[now[1]]);
-        digits.m1.attr('class', digit_to_name[now[2]]);
-        digits.m2.attr('class', digit_to_name[now[3]]);
-
-        // The library returns Sunday as the first day of the week.
-        // Stupid, I know. Lets shift all the days one position down, 
-        // and make Sunday last
-
-        var dow = now[6];
-        dow--;
-
-        // Sunday!
-        if(dow < 0){
-            // Make it last
-            dow = 6;
-        }
-
-        // Mark the active day of the week
-        weekdays.removeClass('active').eq(dow).addClass('active');
-
-        // Set the am/pm text:
-        ampm.text(now[7]+now[8]);
-
-        // Schedule this function to be run again in 1 sec
-        setTimeout(update_time, 1000);
-
-    })();
+    // refresh every second
+    setInterval(updateClockInfo, 1000);
 });
