@@ -1,10 +1,10 @@
 :root {
        --color-body: #4f4f4f;
-       --color-link: #389dc1;
+       --color-link: #94d0e6;
        --color-bg-dark: #272e38;
-       --color-fg-dark: #ff002f;
+       --color-fg-dark: #b6efff;
        --color-border-black: #000;
-       --color-bg-display-dark: #602222;
+       --color-bg-display-dark: #223d60;
        --underlay-opacity: 0.35;
        --font-digital: 'Digital-7', sans-serif;
        --clock-font-size: 96px;
