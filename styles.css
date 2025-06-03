@@ -162,7 +162,7 @@ aside {
 
 .status {
     text-align: left;
-    font-size: 20px;
+    font-size: 19px;
 }
 
 
@@ -172,7 +172,17 @@ aside {
 }
 
 .mode {
+    display: flex;
+    align-items: center;
+    gap: 5px;
     font-size: 30px;
+}
+
+.mode .region {
+    font-size: 16px;
+    padding: 3px 5px 2px;
+    color: var(--color-bg-display-dark);
+    background-color: var(--color-fg-dark);
 }
 
 .audio {
@@ -187,11 +197,21 @@ aside {
     gap: 3px;
 }
 
+.signal {
+    display: flex;
+    gap: 10px;
+}
+
 .channel .number {
     position: relative;
     font-size: 30px;
     top: 2px;
     font-family: var(--font-digital);
+}
+
+.arrows {
+    position: relative;
+    top: -3px;
 }
 
 .arrows span {
